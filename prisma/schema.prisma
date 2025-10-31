@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql" 
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Obra {
+  id            Int                @id @default(autoincrement())
+  nomeCliente   String
+  telefone      String
+  endereco      String
+  tipoServico   String
+  descricao     String
+  prazoDias     Int
+  valorTotal    Float
+  materiais     OrcamentoItem[]    
+  maoDeObra     OrcamentoMaoObra[] 
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  status        String             @default("aguardando") 
+  publicId      String             @unique @default(uuid())
+
+ 
+}
+
+
+model OrcamentoItem {
+  id        Int     @id @default(autoincrement())
+  obra      Obra    @relation(fields: [obraId], references: [id])
+  obraId    Int
+  quantidade Int
+  descricao String
+  medida    String
+  valor     Float?  // opcional, se quiser armazenar valor unitário ou total
+}
+
+model OrcamentoMaoObra {
+  id        Int     @id @default(autoincrement())
+  obra      Obra    @relation(fields: [obraId], references: [id])
+  obraId    Int
+  tipo      String
+  descricao String
+  valor     Float
+}
