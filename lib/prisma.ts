@@ -1,12 +1,9 @@
-import { PrismaClient } from "@prisma/client";
-
-// Evita criar múltiplas instâncias no desenvolvimento
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
-
+import { PrismaClient } from "../app/generated/prisma/client"
+import { withAccelerate } from "@prisma/extension-accelerate"
+ 
+const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
+ 
 export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: ["query"], // opcional: loga todas queries no console
-  });
-
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+  globalForPrisma.prisma || new PrismaClient().$extends(withAccelerate())
+ 
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma

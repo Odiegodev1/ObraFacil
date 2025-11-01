@@ -13,6 +13,7 @@ import { Progressp } from "./components/progressp";
 
 import Image from "next/image";
 import { DialogApp } from "./components/DialogApp";
+import { StatusApp } from "./components/status";
 
 interface Props {
   params: { publicId: string };
@@ -32,7 +33,7 @@ export default async function OrcamentoCliente({ params }: Props) {
 
   return (
     <section className="flex flex-col  w-full min-h-screen">
-      <header className="border-b p-5 px-30 py-7 justify-between border-orange-200 h-12 w-full flex items-center ">
+      <header className="border-b p-5 md:px-30 py-7 justify-between border-orange-200 h-12 w-full flex items-center ">
         <div className=" flex items-center gap-2">
           <div className="flex justify-center items-center p-2 size-12 bg-orange-400 rounded-md">
             <HardHat className="text-white" />
@@ -43,24 +44,16 @@ export default async function OrcamentoCliente({ params }: Props) {
           <Phone /> WhatsApp
         </Button>
       </header>
-      <main className="flex px-30 w-full flex-col items-center py-8 ">
-        <div className="w-full flex flex-col gap-10 justify-center items-center">
-          <Card className="w-3xl">
+
+      <main className="flex md:px-30 w-full flex-col items-center py-8 ">
+        <div className="w-full p-2 flex flex-col gap-10 justify-center items-center">
+          <Card className="md:w-3xl w-full">
             <CardHeader>
               <CardTitle>Veja o Processo da Obra</CardTitle>
               <CardDescription>sua obra em processo</CardDescription>
             </CardHeader>
             <CardContent className="w-full">
-              <div className="space-y-5">
-                <Progressp value={90} />
-
-                <div className="flex items-center justify-between gap-2">
-             
-                  <Button className="size-12 cursor-pointer">
-                    <ImageIcon />
-                  </Button>
-                </div>
-              </div>
+                <StatusApp obraId={obra.id}   />
             </CardContent>
           </Card>
 
@@ -68,7 +61,7 @@ export default async function OrcamentoCliente({ params }: Props) {
             
             className="p-0 hover:scale-105 
                 trasition-all duration-700 hover:shadow-2xl
-                  hover:shadow-orange-400  w-3xl  "
+                  hover:shadow-orange-400  md:w-3xl  "
           >
             <Image
               src={Obra}

@@ -56,17 +56,23 @@ export function DialogApp({ obra }: ObraDialogProps) {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>{obra.tipoServico}</DialogTitle>
+            <DialogTitle className="md:text-md text-sm ">{obra.tipoServico}</DialogTitle>
           </DialogHeader>
-          <Tabs defaultValue="orcamento">
-            <TabsList className=" bg-amber-500">
-              <TabsTrigger className="cursor-pointer" value="orcamento">
+
+          <Tabs
+          
+          defaultValue="orcamento">
+            <TabsList className="grid grid-cols-2 bg-orange-500 gap-2  w-full ">
+              <TabsTrigger className="cursor-pointer " value="orcamento">
                 Orçamento
               </TabsTrigger>
               <TabsTrigger className="cursor-pointer" value="criarorcamento">
                 Criar Orçamento
               </TabsTrigger>
-              <TabsTrigger className="cursor-pointer" value="fotosobra">
+
+            </TabsList>
+            <TabsList className="grid grid-cols-2 bg-orange-500 gap-2 w-full  ">
+                            <TabsTrigger className="cursor-pointer" value="fotosobra">
                 Fotos da Obra
               </TabsTrigger>
               <TabsTrigger className="cursor-pointer" value="processobra">

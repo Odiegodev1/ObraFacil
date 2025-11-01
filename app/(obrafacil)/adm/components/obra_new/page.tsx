@@ -14,7 +14,7 @@ import {
 import { ObraNew } from "./obranew"
 import { useState } from "react"
 
-export function Obras(){
+export default function Obras(){
     const [open, setOpen] = useState(false)
     return(
         <>

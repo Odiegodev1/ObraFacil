@@ -83,10 +83,10 @@ export function DialogApp({obra}: ObraDialogProps){
                             </div>
                            </TabsContent>
                            <TabsContent value="processobra">
-                            <h1 className="mt-2 mb-2">Veja oProcesso da Obra</h1>
+                            <h1 className="mt-2 mb-2">Fotos</h1>
                              <div className="space-y-4">
                                  
-                              <StatusApp obraId={obra.id}   />
+                             Em desenvolvimento
                              </div>
                           
                            </TabsContent>

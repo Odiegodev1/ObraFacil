@@ -3,10 +3,17 @@ import { HardHat } from "lucide-react";
 
 import { Cardcontent } from "./components/cardContent";
 
-import { Obras } from "./components/obra_new/page";
+import  Obras  from "./components/obra_new/page";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 
-export default function Adm(){
+export default async function Adm(){
+    const session = await auth();
+
+    if(!session?.user){
+        redirect("/")
+    }
     return(
        <section className="flex flex-col  w-full min-h-screen">
          <header className="border-b p-5 py-7 justify-between border-orange-200 h-12 w-full flex items-center ">
