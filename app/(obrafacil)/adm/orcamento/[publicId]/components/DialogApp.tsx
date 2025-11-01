@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button";
 import Orcamento_mao from "@/app/(obrafacil)/orcamento/page";
-import { StatusApp } from "./status";
+
 
 
 interface ObraDialogProps {

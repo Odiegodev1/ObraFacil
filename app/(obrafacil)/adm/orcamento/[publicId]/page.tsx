@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default async function OrcamentoCliente({ params }: Props) {
- const { publicId } = await params
+ const { publicId } =  params
  
   if (!publicId) return <div>Link inválido</div>;
 
