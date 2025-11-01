@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Progressp } from "./components/progressp";
+
 
 import Image from "next/image";
 import { DialogApp } from "./components/DialogApp";
@@ -20,7 +20,7 @@ interface Props {
 }
 
 export default async function OrcamentoCliente({ params }: Props) {
-  const { publicId } = await params;
+  const { publicId } =  params;
 
   if (!publicId) return <div>Link inválido</div>;
 
